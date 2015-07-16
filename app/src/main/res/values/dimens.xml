@@ -1,5 +1,134 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+<!-- Default screen margins, per the Android Design guidelines. -->
+<dimen name="activity_horizontal_margin">16dp</dimen>
+<dimen name="activity_vertical_margin">16dp</dimen>
+
+<!-- Default screen margins, per the Android Design guidelines. -->
+<dimen name="activity_detail_house_title_size">18sp</dimen>
+
+<dimen name="activity_base_margin_small">6dp</dimen>
+<dimen name="activity_base_margin_smaller">4dp</dimen>
+<dimen name="line_normal_height">1dp</dimen>
+<dimen name="line_big_height">2dp</dimen>
+<dimen name="zero_width">1dp</dimen>
+
+<dimen name="activity_main_margin_bottom">30dp</dimen>
+<dimen name="activity_main_margin_left">20dp</dimen>
+<dimen name="filter_list_margin_bottom">60dp</dimen>
+
+<dimen name="activity_user_module_small_margin">10dp</dimen>
+<dimen name="activity_user_module_min_margin">5dp</dimen>
+<dimen name="activity_form_moudle_gap">30dp</dimen>
+<dimen name="activity_user_module_base_margin">15dp</dimen>
+<dimen name="activity_user_module_big_margin">20dp</dimen>
+<dimen name="form_checkbox_padding_bottom">13dp</dimen>
+<dimen name="one_hundred">100dp</dimen>
+
+<dimen name="base_drawable_padding">5dp</dimen>
+<dimen name="house_info_title_width">80dp</dimen>
+<dimen name="baidu_map_height">160dp</dimen>
+
+<dimen name="activity_form_colm_margin_top_for_helper">10dp</dimen>
+<dimen name="activity_form_colm_margin_bottom_for_helper">16dp</dimen>
+<dimen name="activity_form_colm_margin_bottom">18dp</dimen>
+<dimen name="activity_form_colm_margin_top">10dp</dimen>
+<dimen name="activity_form_colm_single_line_top">3dp</dimen>
+<dimen name="activity_form_colm_single_line_bottom">11dp</dimen>
+<dimen name="edit_text_padding_normal">12dp</dimen>
+
+<!-- redion button -->
+<dimen name="redion_btn_padding_vertical">4dp</dimen>
+<dimen name="redion_btn_padding_horizontal">6dp</dimen>
+
+<!-- font size -->
+<dimen name="detail_title_size">18sp</dimen>
+<dimen name="detail_text_size">15sp</dimen>
+<dimen name="font_size_big6">44sp</dimen>
+<dimen name="font_size_big5">34sp</dimen>
+<dimen name="font_size_big30">30sp</dimen>
+<dimen name="font_size_big4">26sp</dimen>
+<dimen name="font_size_big3">24sp</dimen>
+<dimen name="font_size_big2">20sp</dimen>
+<dimen name="font_size_big">18sp</dimen>
+<dimen name="font_size_small">14sp</dimen>
+<dimen name="font_size_base">16sp</dimen>
+<dimen name="font_size_smaller">12sp</dimen>
+<dimen name="font_size_smallest">10sp</dimen>
+
+<dimen name="detail_view_margin">20dp</dimen>
+<dimen name="detail_location_view_margin_top">30dp</dimen>
+<dimen name="activity_filter_padding">15dp</dimen>
+<dimen name="base_margin_stack">10dp</dimen>
+<dimen name="base_height_stack_in_frame">170dip</dimen>
+<dimen name="base_height_stack_out_frame">190dip</dimen>
+<dimen name="base_stack_padding_top">40dip</dimen>
+
+<dimen name="notification_head">40dp</dimen>
+<dimen name="first_column">70dp</dimen>
+<dimen name="rental_detail_photo_view_margin_size">15dp</dimen>
+<dimen name="title_view_height_base">50dp</dimen>
+
+<dimen name="view_divider_height">1px</dimen>
+<dimen name="more_select_round_radio">50dp</dimen>
+<dimen name="more_select_title_width">90dp</dimen>
+<dimen name="more_select_title_width_bigger">120dp</dimen>
+
+
+<!-- font size ,base is 16sp-->
+<dimen name="dimen_sp_44">44sp</dimen>
+<dimen name="dimen_sp_34">34sp</dimen>
+<dimen name="dimen_sp_26">26sp</dimen>
+<dimen name="dimen_sp_24">24sp</dimen>
+<dimen name="dimen_sp_22">22sp</dimen>
+<dimen name="dimen_sp_20">20sp</dimen>
+<dimen name="dimen_sp_19">19sp</dimen>
+<dimen name="dimen_sp_18">18sp</dimen>
+<dimen name="dimen_sp_17">17sp</dimen>
+<dimen name="dimen_sp_16">16sp</dimen>
+<dimen name="dimen_sp_15">15sp</dimen>
+<dimen name="dimen_sp_14">14sp</dimen>
+<dimen name="dimen_sp_12">12sp</dimen>
+<dimen name="dimen_sp_10">10sp</dimen>
+
+<!-- margin,padding dp-->
+<dimen name="dimen_dp_3">3dp</dimen>
+<dimen name="dimen_dp_5">5dp</dimen>
+<dimen name="dimen_dp_6">6dp</dimen>
+<dimen name="dimen_dp_8">8dp</dimen>
+<dimen name="dimen_dp_10">10dp</dimen>
+<dimen name="dimen_dp_12">12dp</dimen>
+<dimen name="dimen_dp_15">15dp</dimen>
+<dimen name="dimen_dp_18">18dp</dimen>
+<dimen name="dimen_dp_20">20dp</dimen>
+<dimen name="dimen_dp_24">24dp</dimen>
+<dimen name="dimen_dp_28">28dp</dimen>
+<dimen name="dimen_dp_30">30dp</dimen>
+<dimen name="dimen_dp_32">32dp</dimen>
+<dimen name="dimen_dp_34">34dp</dimen>
+<dimen name="dimen_dp_35">35dp</dimen>
+<dimen name="dimen_dp_40">40dp</dimen>
+<dimen name="dimen_dp_50">50dp</dimen>
+<dimen name="dimen_dp_56">56dp</dimen>
+<dimen name="dimen_dp_60">60dp</dimen>
+<dimen name="dimen_dp_86">86dp</dimen>
+<dimen name="dimen_dp_62">62dp</dimen>
+<dimen name="dimen_dp_80">80dp</dimen>
+<dimen name="dimen_dp_70">70dp</dimen>
+<dimen name="dimen_dp_100">100dp</dimen>
+<dimen name="dimen_dp_120">120dp</dimen>
+
+<!--px-->
+<dimen name="dimen_px_1">1px</dimen>
+
+
+<!--house-image width and height-->
+<dimen name="image_width_dp_100">100dp</dimen>
+<dimen name="image_width_dp_90">90dp</dimen>
+<dimen name="image_height_dp_80">80dp</dimen>
+
+<!--detail house-->
+<dimen name="detail_title_view_margin_top_bottom">40dp</dimen>
+<dimen name="detail_title_view_big_title">20sp</dimen>
+
 </resources>
+

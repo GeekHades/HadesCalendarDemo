@@ -5,4 +5,202 @@
         <!-- Customize your theme here. -->
     </style>
 
+<style name="Eallcn.Widget.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <item name="android:background">@android:color/white</item>
+    <item name="background">@android:color/white</item>
+    <item name="titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+</style>
+
+<style name="MyTheme.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <item name="android:textColor">@color/font_black_2</item>
+</style>
+
+<style name="Widget.ActionBar.Transparent" parent="Eallcn.Widget.ActionBar">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="background">@android:color/transparent</item>
+</style>
+
+<!--<style name="Widget.ToolBar.Transparent" parent="Widget.AppCompat.Toolbar">-->
+<!--<item name="android:background">@android:color/transparent</item>-->
+<!--<item name="background">@android:color/transparent</item>-->
+<!--</style>-->
+
+<style name="Animation.back" parent="android:style/Animation.Activity">
+    <!--<item name="android:activityOpenEnterAnimation">@anim/move_right_in_activity</item>-->
+    <!--<item name="android:activityOpenExitAnimation">@anim/hold_long</item>-->
+    <!--<item name="android:activityCloseEnterAnimation">@anim/hold_long</item>-->
+    <!--<item name="android:activityCloseExitAnimation">@anim/move_right_out_activity</item>-->
+    <!--<item name="android:windowExitAnimation">@anim/move_right_out_activity</item>-->
+    <!--<item name="android:windowEnterAnimation">@anim/move_right_in_activity</item>-->
+</style>
+
+<style name="Animation.close" parent="android:style/Animation.Activity">
+    <!--<item name="android:activityOpenEnterAnimation">@anim/push_bottom_in</item>-->
+    <!--<item name="android:activityOpenExitAnimation">@anim/hold_long</item>-->
+    <!--<item name="android:activityCloseEnterAnimation">@anim/hold_long</item>-->
+    <!--<item name="android:activityCloseExitAnimation">@anim/push_bottom_out</item>-->
+    <!--<item name="android:windowExitAnimation">@anim/push_bottom_out</item>-->
+    <!--<item name="android:windowEnterAnimation">@anim/push_bottom_in</item>-->
+</style>
+
+<style name="tv_login">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:layout_weight">1</item>
+    <item name="android:gravity">left|center_vertical</item>
+    <item name="android:textColor">@color/font_black_2</item>
+    <item name="android:textSize">@dimen/font_size_base</item>
+</style>
+
+
+<style name="tv_base_user_module">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginLeft">@dimen/activity_user_module_base_margin</item>
+    <item name="android:layout_marginRight">@dimen/activity_user_module_base_margin</item>
+    <item name="android:textColor">@color/font_black_2</item>
+    <item name="android:textSize">@dimen/font_size_base</item>
+</style>
+
+<style name="btn_base">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">@dimen/font_size_base</item>
+</style>
+
+<style name="dialog" parent="@android:style/Theme.Dialog">
+    　　
+    <item name="android:windowFrame">@null</item>
+    　　
+    <item name="android:windowIsFloating">true</item>
+    　　
+    <item name="android:windowIsTranslucent">false</item>
+    　　
+    <item name="android:windowNoTitle">true</item>
+    　　
+    <item name="android:background">@null</item>
+    　　
+    <item name="android:windowBackground">@color/trans</item>
+    　　
+    <item name="android:backgroundDimEnabled">true</item>
+</style>
+
+<style name="dialog_new" parent="@android:style/Theme.Dialog">
+    　　
+    <item name="android:windowFrame">@null</item>
+    　　
+    <item name="android:windowIsFloating">true</item>
+    　　
+    <item name="android:windowIsTranslucent">false</item>
+    　　
+    <item name="android:windowNoTitle">true</item>
+    　　
+    <item name="android:background">#00ffffff</item>
+    　　
+    <item name="android:windowBackground">@color/trans</item>
+    　　
+    <item name="android:backgroundDimEnabled">false</item>
+</style>
+
+<style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
+    <item name="android:typeface">monospace</item>
+</style>
+
+
+<!-- custom checkbox-->
+<style name="CustomCheckboxMainCommon" parent="@android:style/Widget.CompoundButton.CheckBox">
+    <!--<item name="android:paddingLeft">15dp</item>-->
+    <!--<item name="android:paddingRight">15dp</item>-->
+</style>
+
+
+<style name="new_login_tv_style">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textSize">15sp</item>
+</style>
+
+<declare-styleable name="RangeBar">
+    <attr name="tickCount" format="integer" />
+    <attr name="tickHeight" format="dimension" />
+    <attr name="barWeight" format="dimension" />
+    <attr name="barColor" format="reference|color" />
+    <attr name="connectingLineWeight" format="dimension" />
+    <attr name="connectingLineColor" format="reference|color" />
+    <attr name="thumbRadius" format="dimension" />
+    <attr name="thumbImageNormal" format="reference" />
+    <attr name="thumbImagePressed" format="reference" />
+    <attr name="thumbColorNormal" format="reference|color" />
+    <attr name="thumbColorPressed" format="reference|color" />
+</declare-styleable>
+
+<declare-styleable name="RangeTextBar">
+    <attr name="range_left_text" format="string" />
+    <attr name="range_left_color" format="color" />
+    <attr name="range_left_text_size" format="dimension" />
+    <attr name="range_right_text" format="string" />
+    <attr name="range_right_color" format="color" />
+    <attr name="range_right_text_size" format="dimension" />
+</declare-styleable>
+
+<style name="add_purchase_house_divider">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">0.5dp</item>
+    <item name="android:background">@color/divider_2</item>
+    <item name="android:layout_marginTop">5dp</item>
+    <item name="android:layout_marginBottom">5dp</item>
+</style>
+
+<style name="set_activity_line">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">1px</item>
+    <item name="android:background">@color/set_activity_line_color</item>
+</style>
+
+<style name="CalendarCard">
+
+</style>
+
+<style name="CalendarCard.Root">
+    <item name="android:padding">10dp</item>
+</style>
+
+<style name="CalendarCard.Day">
+    <item name="android:paddingBottom">5dp</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/font_black_4</item>
+    <item name="android:gravity">center</item>
+</style>
+
+<style name="CalendarCard.Days">
+    <item name="android:padding">0dp</item>
+</style>
+
+<style name="CalendarCard.Title">
+    <item name="android:padding">5dp</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:gravity">left</item>
+</style>
+
+<style name="CalendarCard.Grid">
+    <!--<item name="android:background">@drawable/card_grid_bg</item>-->
+    <!--<item name="android:paddingRight">1dp</item>-->
+    <!--<item name="android:paddingBottom">1dp</item>-->
+</style>
+
+<style name="CalendarCard.Cell">
+    <!--<item name="android:background">@drawable/selector_calendar_item</item>-->
+    <item name="android:padding">2dp</item>
+    <item name="android:textSize">@dimen/dimen_sp_16</item>
+    <item name="android:gravity">center</item>
+</style>
+
+<declare-styleable name="CAGridViewStyle">
+    <attr name="caet_multiple_choice" format="boolean"/>
+    <attr name="cagv_max_num_columns" format="integer"/>
+</declare-styleable>
+
 </resources>
+
