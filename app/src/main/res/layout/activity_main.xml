@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <!--<com.love.hades.hadescalendardemo.widget.CalendarCardPager-->
-        <!--android:id="@+id/calendarCard1"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="350dp"-->
-        <!--android:background="@color/white" />-->
+    <com.love.hades.hadescalendardemo.widget.CalendarCardPager
+        android:id="@+id/calendarCard1"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@color/white" />
 
 </LinearLayout>
