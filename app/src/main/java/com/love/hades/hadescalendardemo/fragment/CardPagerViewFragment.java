@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.love.hades.hadescalendardemo.AppointmentActivity;
 import com.love.hades.hadescalendardemo.Utils.LogUtils;
 import com.love.hades.hadescalendardemo.listener.OnCellItemClick;
 import com.love.hades.hadescalendardemo.widget.CalendarCard;
+import com.love.hades.hadescalendardemo.widget.CardGridItem;
 
 import java.util.Calendar;
 
@@ -26,7 +28,10 @@ public class CardPagerViewFragment extends Fragment {
 
     private OnCellItemClick defaultOnCellItemClick;
 
+    private OnCellItemClick mOnCellItemClick;
+
     private FragmentActivity mContext;
+
     private CalendarCard card;
 
     /**
@@ -57,6 +62,10 @@ public class CardPagerViewFragment extends Fragment {
             return this.card;
         }
         return this.card;
+    }
+
+    public void setOnCellItemClick(OnCellItemClick mOnCellItemClick){
+        this.mOnCellItemClick = mOnCellItemClick;
     }
 
     @Override
@@ -92,6 +101,25 @@ public class CardPagerViewFragment extends Fragment {
 
         if (card.getOnCellItemClick() == null)
             card.setOnCellItemClick(defaultOnCellItemClick);
+
+        card.setOnCellItemClick(new OnCellItemClick() {
+            @Override
+            public void onCellClick(View v, CardGridItem item) {
+                initChosenViewInfo(item);
+            }
+
+            private void initChosenViewInfo(CardGridItem item) {
+                AppointmentActivity.chosenYear = item.getDate().get(Calendar.YEAR);
+                AppointmentActivity.chosenDay = item.getDate().get(Calendar.DAY_OF_MONTH);
+                int mouthNum = item.getDate().get(Calendar.MONTH);
+                if (AppointmentActivity.chosenDay == 1) {
+                    //TODO 如果选中的是1的话，月份不需要加一，因为在日历里面，有一个加1的算法，导致了这里每个月的一号，月份比当前月份大一！
+                    AppointmentActivity.chosenMoth = mouthNum;
+                } else {
+                    AppointmentActivity.chosenMoth = mouthNum + 1;
+                }
+            }
+        });
 
         return card;
     }
@@ -148,7 +176,7 @@ public class CardPagerViewFragment extends Fragment {
 
     @Override
     public boolean getUserVisibleHint() {
-        LogUtils.d(TAG, "--getUserVisibleHint() "+getActivity().toString()+"  "+mNum);
+//        LogUtils.d(TAG, "--getUserVisibleHint() "+getActivity().toString()+"  "+mNum);
         return super.getUserVisibleHint();
     }
 

@@ -7,12 +7,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.love.hades.hadescalendardemo.listener.OnCellItemClick;
+import com.love.hades.hadescalendardemo.Utils.LogUtils;
+import com.love.hades.hadescalendardemo.fragment.CardPagerViewFragment;
 import com.love.hades.hadescalendardemo.widget.CalendarCard;
 import com.love.hades.hadescalendardemo.widget.CalendarCardPager;
-import com.love.hades.hadescalendardemo.widget.CardGridItem;
 
 import java.util.Calendar;
 
@@ -42,6 +41,7 @@ public class AppointmentActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        mCalendarCard.setOffscreenPageLimit(0);
         initListener();
     }
 
@@ -50,45 +50,62 @@ public class AppointmentActivity extends FragmentActivity {
      */
     private void initListener() {
 
-        mCalendarCard.setOnCellItemClick(new OnCellItemClick() {
-            @Override
-            public void onCellClick(View v, CardGridItem item) {
-                initChosenViewInfo(item);
-            }
+//        mCalendarCard.setOnCellItemClick(new OnCellItemClick() {
+//            @Override
+//            public void onCellClick(View v, CardGridItem item) {
+//                initChosenViewInfo(item);
+//            }
+//
+//            private void initChosenViewInfo(CardGridItem item) {
+//                AppointmentActivity.chosenYear = item.getDate().get(Calendar.YEAR);
+//                AppointmentActivity.chosenDay = item.getDate().get(Calendar.DAY_OF_MONTH);
+//                int mouthNum = item.getDate().get(Calendar.MONTH);
+//                if (AppointmentActivity.chosenDay == 1) {
+//                    //TODO 如果选中的是1的话，月份不需要加一，因为在日历里面，有一个加1的算法，导致了这里每个月的一号，月份比当前月份大一！
+//                    AppointmentActivity.chosenMoth = mouthNum;
+//                } else {
+//                    AppointmentActivity.chosenMoth = mouthNum + 1;
+//                }
+//            }
+//        });
 
-            private void initChosenViewInfo(CardGridItem item) {
-                AppointmentActivity.chosenYear = item.getDate().get(Calendar.YEAR);
-                AppointmentActivity.chosenDay = item.getDate().get(Calendar.DAY_OF_MONTH);
-                int mouthNum = item.getDate().get(Calendar.MONTH);
-                if (AppointmentActivity.chosenDay == 1) {
-                    //TODO 如果选中的是1的话，月份不需要加一，因为在日历里面，有一个加1的算法，导致了这里每个月的一号，月份比当前月份大一！
-                    AppointmentActivity.chosenMoth = mouthNum;
-                } else {
-                    AppointmentActivity.chosenMoth = mouthNum + 1;
-                }
-            }
-        });
 
-        //禁止预加载
+
+        //下面解决预加载的问题
         mCalendarCard.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                LogUtils.d(TAG,"onPageScrolled  position="+position+"  positionOffset="+positionOffset+"  positionOffsetPixels="+positionOffsetPixels);
 
             }
 
             @Override
             public void onPageSelected(int position) {
-                CalendarCard currentView = mCalendarCard.getCardPagerAdapter().getCurrentView();
-                if(null != currentView){
-                    Calendar cal = currentView.getDateDisplay();
-                    mTargetYear = cal.get(Calendar.YEAR);
-                    caculateYearMonth(position, cal);
-                    Log.d(TAG, "mTargetYear=" + mTargetYear);
-                    Log.d(TAG, "mTargetMonth=" + mTargetMonth);
+                LogUtils.d(TAG, "Adapter  position="+position);
+                int cutIndex = mCalendarCard.getCurrentItem();
+                LogUtils.d(TAG, "Adapter  currentItem position=" + cutIndex);
+                Bundle mBundle = mCalendarCard.getCardPagerAdapter().getItem(cutIndex).getArguments();
+                int num =  mBundle.getInt("num");
+                LogUtils.d(TAG, "Adapter  currentItem getArguments num=" + num);
 
-                    Log.d(TAG, "chouseYear=" + chosenYear +"   chosenMonth="+chosenMoth+"  chouseDay="+chosenDay);
-                    currentView.updateView();
+                //TODO 这里的处理方式预加载是有问题的！
+//                CalendarCard currentView = mCalendarCard.getCardPagerAdapter().getCurrentView();
+                CardPagerViewFragment cardPagerViewFragment = (CardPagerViewFragment)mCalendarCard.getCardPagerAdapter().getItem(cutIndex);
+
+                if(null != cardPagerViewFragment){
+                    CalendarCard currentView = cardPagerViewFragment.getCurrentView();
+                    if(null != currentView){
+                        Calendar cal = currentView.getDateDisplay();
+                        mTargetYear = cal.get(Calendar.YEAR);
+                        caculateYearMonth(position, cal);
+                        Log.d(TAG, "mTargetYear=" + mTargetYear);
+                        Log.d(TAG, "mTargetMonth=" + mTargetMonth);
+                        Log.d(TAG, "mTarge   chouseYear=" + chosenYear +"   chosenMonth="+chosenMoth+"  chouseDay="+chosenDay);
+                        currentView.updateView();
+                    }
                 }
+
             }
 
             private void caculateYearMonth(int position, Calendar cal) {
@@ -113,7 +130,7 @@ public class AppointmentActivity extends FragmentActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
+                LogUtils.d(TAG,"onPageScrollStateChanged  position="+state);
             }
         });
 

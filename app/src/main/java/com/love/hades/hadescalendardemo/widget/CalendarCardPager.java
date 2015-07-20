@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.love.hades.hadescalendardemo.adapter.CardPagerFragmentAdapter;
 import com.love.hades.hadescalendardemo.listener.OnCellItemClick;
@@ -45,18 +46,19 @@ public class CalendarCardPager extends ViewPager {
 
     public void setOnCellItemClick(OnCellItemClick mOnCellItemClick) {
         this.mOnCellItemClick = mOnCellItemClick;
-//        mCardPagerFragmentAdapter.getCurrentView()
-//        mCardPagerFragmentAdapter.setDefaultOnCellItemClick(this.mOnCellItemClick);
-//        mCardPagerFragmentAdapter.setOnCellItemClick(this.mOnCellItemClick);
+        mCardPagerFragmentAdapter.setDefaultOnCellItemClick(this.mOnCellItemClick);
+        mCardPagerFragmentAdapter.setOnCellItemClick(this.mOnCellItemClick);
 
-//        if (getChildCount() > 0) {
-//            for(int i=0; i<getChildCount(); i++) {
-//                View v = getChildAt(i);
-//                if (v instanceof CalendarCard) {
-//                    ((CalendarCard) v).setOnCellItemClick(this.mOnCellItemClick);
-//                }
-//            }
-//        }
+        if (getChildCount() > 0) {
+            for(int i=0; i<getChildCount(); i++) {
+                View v = getChildAt(i);
+                if (v instanceof CalendarCard) {
+                    ((CalendarCard) v).setOnCellItemClick(this.mOnCellItemClick);
+                }
+            }
+        }
     }
+
+
 
 }
