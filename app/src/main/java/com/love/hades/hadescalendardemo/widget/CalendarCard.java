@@ -226,27 +226,16 @@ public class CalendarCard extends RelativeLayout {
         Log.d(TAG, "mRefreshFlag=" + mRefreshFlag);
         for (int i = firstDay; i < lastDay; i++) {
             cal.set(Calendar.DAY_OF_MONTH, i - 1);
-
             Calendar date = (Calendar) cal.clone();
-
             date.add(Calendar.DAY_OF_MONTH, 1);
-
             CheckableLayout cell = cells.get(counter);
-
-
-
             int status = isTodayView(todayDay, thisMonth, thisYear, cal, i, cell);
-
             //setDate Date 是错误的数据！
             cell.setTag(new CardGridItem(i).setEnabled(true).setDate(date).setStatus(status));
-
             cell.setVisibility(View.VISIBLE);
-
             (mOnItemRender == null ? mOnItemRenderDefault : mOnItemRender).onRender(cell, (CardGridItem) cell.getTag());
             setCellCheckedHadChosed(i, cell);
-
             counter++;
-
         }
 
         if (dateDisplay != null)

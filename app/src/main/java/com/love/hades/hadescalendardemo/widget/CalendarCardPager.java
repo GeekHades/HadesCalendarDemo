@@ -1,17 +1,18 @@
 package com.love.hades.hadescalendardemo.widget;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.View;
 
-import com.love.hades.hadescalendardemo.adapter.CardPagerAdapter;
+import com.love.hades.hadescalendardemo.adapter.CardPagerFragmentAdapter;
 import com.love.hades.hadescalendardemo.listener.OnCellItemClick;
 
 public class CalendarCardPager extends ViewPager {
 
-    private CardPagerAdapter mCardPagerAdapter;
+//    private CardPagerAdapter mCardPagerAdapter;
     private OnCellItemClick mOnCellItemClick;
+    private CardPagerFragmentAdapter mCardPagerFragmentAdapter;
 
     public CalendarCardPager(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs);
@@ -29,12 +30,13 @@ public class CalendarCardPager extends ViewPager {
     }
 
     private void init(Context context) {
-        mCardPagerAdapter = new CardPagerAdapter(context);
-        setAdapter(mCardPagerAdapter);
+        FragmentActivity mContext = (FragmentActivity)context;
+        mCardPagerFragmentAdapter = new CardPagerFragmentAdapter(mContext.getSupportFragmentManager());
+        setAdapter(mCardPagerFragmentAdapter);
     }
 
-    public CardPagerAdapter getCardPagerAdapter() {
-        return mCardPagerAdapter;
+    public CardPagerFragmentAdapter getCardPagerAdapter() {
+        return mCardPagerFragmentAdapter;
     }
 
     public OnCellItemClick getOnCellItemClick() {
@@ -43,15 +45,18 @@ public class CalendarCardPager extends ViewPager {
 
     public void setOnCellItemClick(OnCellItemClick mOnCellItemClick) {
         this.mOnCellItemClick = mOnCellItemClick;
-        mCardPagerAdapter.setDefaultOnCellItemClick(this.mOnCellItemClick);
-        if (getChildCount() > 0) {
-            for(int i=0; i<getChildCount(); i++) {
-                View v = getChildAt(i);
-                if (v instanceof CalendarCard) {
-                    ((CalendarCard) v).setOnCellItemClick(this.mOnCellItemClick);
-                }
-            }
-        }
+//        mCardPagerFragmentAdapter.getCurrentView()
+//        mCardPagerFragmentAdapter.setDefaultOnCellItemClick(this.mOnCellItemClick);
+//        mCardPagerFragmentAdapter.setOnCellItemClick(this.mOnCellItemClick);
+
+//        if (getChildCount() > 0) {
+//            for(int i=0; i<getChildCount(); i++) {
+//                View v = getChildAt(i);
+//                if (v instanceof CalendarCard) {
+//                    ((CalendarCard) v).setOnCellItemClick(this.mOnCellItemClick);
+//                }
+//            }
+//        }
     }
 
 }

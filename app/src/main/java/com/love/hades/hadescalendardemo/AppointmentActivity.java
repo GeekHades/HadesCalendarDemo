@@ -1,7 +1,7 @@
 package com.love.hades.hadescalendardemo;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class AppointmentActivity extends Activity {
+public class AppointmentActivity extends FragmentActivity {
 
     private static String TAG = "AppointmentActivity";
 
@@ -78,18 +78,17 @@ public class AppointmentActivity extends Activity {
 
             @Override
             public void onPageSelected(int position) {
-
                 CalendarCard currentView = mCalendarCard.getCardPagerAdapter().getCurrentView();
-                Calendar cal = currentView.getDateDisplay();
-                mTargetYear = cal.get(Calendar.YEAR);
+                if(null != currentView){
+                    Calendar cal = currentView.getDateDisplay();
+                    mTargetYear = cal.get(Calendar.YEAR);
+                    caculateYearMonth(position, cal);
+                    Log.d(TAG, "mTargetYear=" + mTargetYear);
+                    Log.d(TAG, "mTargetMonth=" + mTargetMonth);
 
-                caculateYearMonth(position, cal);
-
-                Log.d(TAG, "mTargetYear=" + mTargetYear);
-                Log.d(TAG, "mTargetMonth=" + mTargetMonth);
-
-                currentView.updateView();
-
+                    Log.d(TAG, "chouseYear=" + chosenYear +"   chosenMonth="+chosenMoth+"  chouseDay="+chosenDay);
+                    currentView.updateView();
+                }
             }
 
             private void caculateYearMonth(int position, Calendar cal) {
